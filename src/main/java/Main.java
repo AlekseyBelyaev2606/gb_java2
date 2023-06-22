@@ -17,20 +17,24 @@ public class Main {
 
         File file = new File("C:\\Users\\hp\\IdeaProjects\\autotests\\homework5\\gb_homework_sem2\\src\\main\\java\\first.json");
         Scanner scanner = new Scanner(file);
+        List<StringBuilder> files = new ArrayList<>();
         while (scanner.hasNextLine()){
-            System.out.println(scanner.nextLine());
+            files.add(new StringBuilder(scanner.nextLine()));
+        }
+        System.out.println(files);
+        files.remove(0);
+        files.remove(4);
+
+
+        for (StringBuilder s : files) {
+            for (int i = 0; i < s.length(); i++){
+                if (s.charAt(i) == "," || s.charAt(i) == " "){
+                    s.deleteCharAt(i);
+                    i--;
+                }
+            }
         }
 
-//        List<String> file = new ArrayList<>();
-//        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\hp\\IdeaProjects\\autotests\\homework5\\gb_homework_sem2\\src\\main\\java\\first.json"))) {
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                file.add(line);
-//            }
-//        } catch (IOException e) {
-//            System.err.format("IOException: %s%n", e);
-//        }
-
-        System.out.println(file);
+        System.out.println(files);
     }
 }
