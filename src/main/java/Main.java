@@ -27,14 +27,14 @@ public class Main {
 
 
         for (StringBuilder s : files) {
-            for (int i = 0; i < s.length(); i++){
-                if (s.charAt(i) == "," || s.charAt(i) == " "){
-                    s.deleteCharAt(i);
-                    i--;
+            int index = s.indexOf(":") + 1;
+            s.delete(0, index);
+//            s = new StringBuilder(s.toString().replaceAll("[^A-Za-z0-9]", ""));
+            System.out.println(s);
+            if (s == null ){
+                files.remove(files.indexOf(s));
                 }
             }
-        }
-
         System.out.println(files);
-    }
+        }
 }
